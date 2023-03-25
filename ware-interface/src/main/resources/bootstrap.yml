@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ware-interface
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+  profiles:
+    active: dev

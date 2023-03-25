@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ware-service
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+  profiles:
+    active: dev
+rocketmq:
+  producer:
+    group: test-group
+
+
