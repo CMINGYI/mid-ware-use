@@ -24,6 +24,7 @@ public class UserBizImpl implements UserBiz {
 
     @Resource
     private UserService userService;
+
     @Override
     public List<User> getUserList() {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();

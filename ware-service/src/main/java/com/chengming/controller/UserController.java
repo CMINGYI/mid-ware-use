@@ -28,8 +28,9 @@ public class UserController {
 
     @Autowired
     private UserBiz userBiz;
+
     @PostMapping("/sayHello")
-    public String sayHello(){
+    public String sayHello() {
         return "hello world!!!";
     }
 

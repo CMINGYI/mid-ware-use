@@ -21,6 +21,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Resource
     private UserMapper userMapper;
+
     @Override
     public List<User> getUserList() {
         return userMapper.getUserList();

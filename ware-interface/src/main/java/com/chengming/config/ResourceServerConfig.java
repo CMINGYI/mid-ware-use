@@ -30,6 +30,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /**
      * 声明了资源服务器的ID是user-service，声明了资源服务器的TokenStore是JWT
+     *
      * @param resources
      * @throws Exception
      */
@@ -40,6 +41,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /**
      * 配置TokenStore
+     *
      * @return
      */
     @Bean
@@ -49,6 +51,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /**
      * 配置公钥
+     *
      * @return
      */
     @Bean
@@ -67,14 +70,15 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /**
      * 配置了除了/user路径之外的请求可以匿名访问
+     *
      * @param http
      * @throws Exception
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user/**","/consumer/**").authenticated()
-                .antMatchers("/actuator/**","/actuator**").permitAll()
+                .antMatchers("/user/**", "/consumer/**").authenticated()
+                .antMatchers("/actuator/**", "/actuator**").permitAll()
                 .anyRequest().permitAll();
     }
 }

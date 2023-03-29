@@ -40,7 +40,7 @@ public class UserController {
      */
     @PreAuthorize("hasAuthority('READ') or hasAuthority('WRITE')")
     @GetMapping("name")
-    public String name(OAuth2Authentication authentication)  {
+    public String name(OAuth2Authentication authentication) {
         return authentication.getName();
     }
     /*
@@ -69,7 +69,7 @@ public class UserController {
     }
 
     @PostMapping("/sayHello")
-    public String sayHello(){
+    public String sayHello() {
         return userComponent.sayHello();
     }
 }

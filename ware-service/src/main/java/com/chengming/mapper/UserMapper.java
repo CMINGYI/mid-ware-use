@@ -13,8 +13,6 @@ import java.util.List;
  */
 public interface UserMapper extends BaseMapper<User> {
     /**
-     *
-     *
      * @return
      */
     List<User> getUserList();

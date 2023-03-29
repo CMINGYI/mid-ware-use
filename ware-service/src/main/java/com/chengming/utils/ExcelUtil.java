@@ -104,7 +104,7 @@ public class ExcelUtil {
             workbook.write(stream);
             stream.close();
             workbook.close();
-        } catch (IOException e){
+        } catch (IOException e) {
             log.error("error:", e);
         }
         return null;

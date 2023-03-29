@@ -20,7 +20,7 @@ public class UserComponent {
     private UserClient userClient;
 
 
-    public String sayHello(){
+    public String sayHello() {
         return userClient.sayHello();
     }
 }

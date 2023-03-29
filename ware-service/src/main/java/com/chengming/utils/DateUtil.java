@@ -195,7 +195,7 @@ public class DateUtil {
      * @return
      */
     public static <T> boolean isTradeDay(T date) {
-        if (null == date){
+        if (null == date) {
             return false;
         }
         boolean isTD = false;

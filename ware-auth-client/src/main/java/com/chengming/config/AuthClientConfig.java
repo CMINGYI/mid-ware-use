@@ -20,6 +20,7 @@ public class AuthClientConfig {
 
     /**
      * 定义了OAuth2RestTemplate，网上一些比较老的资料给出的是手动读取配置文件来实现，最新版本已经可以自动注入OAuth2ProtectedResourceDetails
+     *
      * @param oAuth2ClientContext
      * @param details
      * @return

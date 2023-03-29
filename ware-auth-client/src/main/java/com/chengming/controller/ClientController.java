@@ -19,7 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class ClientController {
     @Autowired
     private OAuth2RestTemplate restTemplate;
-//http://ms.ai-xinxin.cn/auth-server/oauth/authorize?response_type=code&client_id=auth-client&redirect_uri=https://baidu.com
+
+    //http://ms.ai-xinxin.cn/auth-server/oauth/authorize?response_type=code&client_id=auth-client&redirect_uri=https://baidu.com
     @GetMapping("/securedPage")
     public ModelAndView securedPage(OAuth2Authentication authentication) {
         return new ModelAndView("securedPage").addObject("authentication", authentication);

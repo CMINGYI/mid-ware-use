@@ -102,6 +102,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /**
      * 配置jwt使用非对称加密方式来验证
+     *
      * @return
      */
     protected JwtAccessTokenConverter jwtTokenEnhancer() {

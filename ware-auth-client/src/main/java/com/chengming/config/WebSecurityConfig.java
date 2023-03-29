@@ -18,6 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * /路径和/login路径允许访问，其它路径需要身份认证后才能访问
+     *
      * @param http
      * @throws Exception
      */
@@ -25,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login**","/actuator/**","/actuator**")
+                .antMatchers("/", "/login**", "/actuator/**", "/actuator**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

@@ -25,12 +25,12 @@ public class User {
 
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
 
         if (o != null && getClass().equals(o.getClass())) return true;
 
-        User user = (User)o;
+        User user = (User) o;
 
         return user != null && Objects.equals(user.name, name) && Objects.equals(user.age, age);
 
@@ -40,7 +40,6 @@ public class User {
     public int hashCode() {
         return super.hashCode();
     }
-
 
 
 }
