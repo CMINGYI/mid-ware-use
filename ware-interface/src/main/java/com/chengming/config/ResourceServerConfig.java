@@ -1,5 +1,6 @@
 package com.chengming.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -26,6 +27,7 @@ import java.io.IOException;
 @Configuration
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@Slf4j
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /**
@@ -62,7 +64,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         try {
             publicKey = new String(FileCopyUtils.copyToByteArray(resource.getInputStream()));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("error:", e);
         }
         converter.setVerifierKey(publicKey);
         return converter;
