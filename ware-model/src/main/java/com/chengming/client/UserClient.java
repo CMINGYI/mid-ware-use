@@ -1,5 +1,6 @@
 package com.chengming.client;
 
+import com.chengming.hystrix.UserClientFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @Description: UserClient
  * @Version: V1.0
  */
-@FeignClient("ware-service")
+@FeignClient(value = "ware-service", fallback = UserClientFallBack.class)
 public interface UserClient {
 
     @PostMapping("/user/sayHello")

@@ -31,7 +31,7 @@
         <spring-cloud.version>2020.0.2</spring-cloud.version>
         <spring-cloud-alibaba.version>2020.0.RC1</spring-cloud-alibaba.version>
         <srping-cloud-alibaba.version>0.9.0.RELEASE</srping-cloud-alibaba.version>
-        <caffeine.version>3.1.5</caffeine.version>
+        <caffeine.version>2.8.8</caffeine.version>
         <logstash.version>7.2</logstash.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
@@ -56,7 +56,7 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <!--本地缓存库-->
+        <!--本地缓存库 版本不要超过3.x以上否则无效-->
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>

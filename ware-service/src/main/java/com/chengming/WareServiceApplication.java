@@ -21,4 +21,5 @@ public class WareServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(WareServiceApplication.class, args);
     }
+
 }

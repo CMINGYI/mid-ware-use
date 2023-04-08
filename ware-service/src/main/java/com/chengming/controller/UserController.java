@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class UserController {
 
 
-    @Autowired
+    @Resource
     private UserBiz userBiz;
 
     @PostMapping("/sayHello")

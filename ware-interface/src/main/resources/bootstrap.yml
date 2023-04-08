@@ -8,3 +8,14 @@ spring:
         file-extension: yml
   profiles:
     active: dev
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+    retries: 0
+  cloud:
+    subscribed-services: "ware-service"
