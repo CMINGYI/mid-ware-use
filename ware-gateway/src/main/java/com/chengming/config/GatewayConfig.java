@@ -41,8 +41,10 @@ public class GatewayConfig {
     private final List<ViewResolver> viewResolvers;
 
     private final ServerCodecConfigurer serverCodecConfigurer;
+
     @Value("${gateway.consumer:interface}")
     private String consumer = "interface";
+
     @Value("${gateway.provider:service}")
     private String provider = "service";
 
