@@ -28,7 +28,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public Result<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         BindingResult bindingResult = ex.getBindingResult();
-        StringBuilder sb = new StringBuilder("校验失败:");
+        StringBuilder sb = new StringBuilder("参数校验失败:");
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
             sb.append(fieldError.getField()).append("：").append(fieldError.getDefaultMessage()).append(", ");
         }
