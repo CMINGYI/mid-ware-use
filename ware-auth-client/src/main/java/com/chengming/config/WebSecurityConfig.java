@@ -9,9 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @Name: WebSecurityConfig
  * @Author: kitchening
  * @Date: 2023-03-25 16:27
- * @Description: WebSecurityConfig
- * @Version: V1.0
- */
+        * @Description: WebSecurityConfig
+        * @Version: V1.0
+        */
 @Configuration
 @Order(10)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
