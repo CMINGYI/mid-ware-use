@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class MeterConfig {
-    @Bean
+
     public MeterRegistryCustomizer<MeterRegistry> meterConfig(@Value("${spring.application.name}") String applicationName) {
         return registry -> registry.config().commonTags("application", applicationName);
     }

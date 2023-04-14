@@ -2,7 +2,6 @@ package com.chengming.config;
 
 import com.chengming.reponse.Result;
 import io.micrometer.core.lang.NonNull;
-import io.micrometer.core.lang.NonNullApi;
 import io.micrometer.core.lang.Nullable;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -17,7 +16,7 @@ public class ResultAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(@NonNull MethodParameter returnType,@Nullable Class<? extends HttpMessageConverter<?>> converterType) {
         // 如果不需要进行封装的，可以添加一些校验手段，比如添加标记排除的注解
-        return false;
+        return true;
     }
 
     @Override

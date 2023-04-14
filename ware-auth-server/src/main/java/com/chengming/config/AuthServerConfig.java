@@ -70,7 +70,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.checkTokenAccess("permitAll()").allowFormAuthenticationForClients().passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
+        security.checkTokenAccess("permitAll()").allowFormAuthenticationForClients().passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 
 
