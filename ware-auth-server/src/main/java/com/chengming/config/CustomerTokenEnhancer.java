@@ -17,8 +17,9 @@ import java.util.Map;
  * @Version: V1.0
  */
 public class CustomerTokenEnhancer implements TokenEnhancer {
+
     /**
-     * 用户自定义增强器
+     * 用户自定义增强器 获取token是可以返回此增强信息
      *
      * @param oAuth2AccessToken
      * @param oAuth2Authentication

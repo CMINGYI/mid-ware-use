@@ -42,9 +42,9 @@ public class ResultAdviceConfig implements ResponseBodyAdvice<Object> {
         if (body instanceof Result){
             return body;
         }
-//        if (body instanceof String) {
-//            return body;
-//        }
+        if (body instanceof String) {
+            return body;
+        }
         return Result.success(body);
     }
 

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -53,24 +54,42 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /**
      * @param clients
-     * @throws Exception
+     * @throws Exception 定义客户端详细信息服务的配置器，可以初始化客户端详细信息
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        // 1.客户端信息从数据库中获取
         clients.jdbc(dataSource);
+        // 2.客户端信息从内存中获取
+        //         clients.inMemory()
+        //         .withClient("client") // client_id
+        //         .secret("secret")// client_secret,客户端密码
+        //         .authorizedGrantTypes("password")// 该client允许的授权类型
+        //         .scopes("app")      // 允许的授权范围
+        //         .autoApprove(true);//登录后绕过批准询问
+        // 3.自己实现clientDetailService
+        // clients.withClientDetails()
     }
 
 
     /**
      * 这里干了两件事儿。首先，打开了验证Token的访问权限（以便之后我们演示）。
      * 然后，允许ClientSecret明文方式保存，并且可以通过表单提交（而不仅仅是Basic Auth方式提交），之后会演示到这个。
-     *
+     * 定义授权和令牌端点及令牌服务
      * @param security
      * @throws Exception
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.checkTokenAccess("permitAll()").allowFormAuthenticationForClients().passwordEncoder(NoOpPasswordEncoder.getInstance());
+        security
+                // token校验访问权限
+                .checkTokenAccess("permitAll()")
+                // 允许表单提交
+                .allowFormAuthenticationForClients()
+                // 令牌访问权限
+                .tokenKeyAccess("permitAll()")
+                // 密码加密方式
+                .passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 
 
@@ -160,5 +179,11 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         public void addViewControllers(ViewControllerRegistry registry) {
             registry.addViewController("login").setViewName("login");
         }
+    }
+
+    public static void main(String[] args) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String writer = bCryptPasswordEncoder.encode("yichengming");
+        System.out.println(writer);
     }
 }
